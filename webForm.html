@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<head>
+<style>
+#introBox{
+visibility:hidden;
+position:relative;
+left:40%;
+width:20%;
+border:1px solid black;
+padding:5px;
+}
+#sb
+{
+position:relative;
+border-radius:2px;
+bottom:5px;
+}
+textarea{
+border-radius:5px;
+}
+label{
+position:relative;
+bottom:5px;
+}
+</style>
+<title> 
+Team introduction
+</title>
+<script>
+function further(){
+name= document.getElementById("name").value;
+funFact= document.getElementById("Fun fact").value;
+if(name==" " && funFact==" " ){
+alert("Something should be entered into the name and Fun fact fields ");
+}
+else if(name==" "){
+alert("Name shouldn't be empty");
+}
+else if(funFact==" "){
+alert("Please enter a fun fact");
+}
+else{
+console.log(name+" , "+funFact);
+form = document.getElementById("formBox");
+form.style.visibility = "hidden";
+nameDisplay = document.getElementById("nameDisplay");
+nameDisplay.innerHTML= name;
+funFactDisplay= document.getElementById("funFactDisplay");
+funFactDisplay.innerHTML=funFact;
+introBox= document.getElementById("introBox");
+introBox.style.visibility= "visible";
+}
+}// further
+function reset(){
+document.location.reload();
+}// reset
+</script>
+</head>
+<body>
+<form id="formBox">
+<label for ="name"> Enter your name </label>
+<textarea id="name"> </textarea>
+<label for="Fun fact"> Enter a Fun fact </label>
+<textarea id="Fun fact"> </textarea>
+<input type="button" onclick="further()" value="Introduce Yourself or a friend" id="sb"/>
+</form>
+<div id="introBox">
+<h1 id="nameDisplay"> </h1>
+<h2 id="funFactDisplay"> </h2>
+
+<input type="button" onclick="reset()" value="Reset the form" id="rb"/>
+</div>
+</body>
+</html>
